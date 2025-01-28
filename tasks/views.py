@@ -1,6 +1,8 @@
+from sqlite3 import IntegrityError
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
+from django.contrib.auth import login
 from django.http import HttpResponse  # Corrección de HTTPResponse
 
 # Create your views here.
@@ -13,6 +15,7 @@ def home(request):
 
 
 def signup(request):
+
     if request.method == "GET":
         return render(
             request, "signup.html", {"form": UserCreationForm()}
@@ -25,11 +28,21 @@ def signup(request):
                     password=request.POST["password1"],
                 )
                 user.save()
-                return redirect("home")
-            except Exception as e:
-                return HttpResponse(
-                    "Username already exists"
-                )  # Asegúrate de manejar mejor los errores en producción
-        return HttpResponse(
-            "Passwords do not match"
-        )  # Asegúrate de manejar esto en el frontend también
+                login(request, user)
+                return redirect("tasks")
+            except IntegrityError:
+                return render(
+                    request,
+                    "signup.html",
+                    {"form": UserCreationForm, "error": "Username already exists."},
+                )
+
+        return render(
+            request,
+            "signup.html",
+            {"form": UserCreationForm, "error": "Passwords did not match."},
+        )
+
+
+def tasks(request):
+    return render(request, "tasks.html")  # Crear la plantilla tasks.html
