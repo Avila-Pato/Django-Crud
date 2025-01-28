@@ -28,4 +28,6 @@ urlpatterns = [
     path("signin/", views.signin, name="signin"),
     path("tasks/create_tasks/", views.create_task, name="create_task"),
     path("task_detail/<int:task_id>", views.task_detail, name="task_detail"),
+    path("taks/<int:task_id>/complete", views.complete_task, name="complete_task"),
+    path("tasks/<int:task_id>/delete/", views.delete_task, name="delete_task"),
 ]

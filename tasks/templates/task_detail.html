@@ -3,7 +3,23 @@
 <form method="POST">
   {% csrf_token %}
 
-  <div><h1>HOLA</h1></div>
+  <div>
+    <h1>actualize su tarea</h1>
+    <form method="POST">
+      {% csrf_token %} {{ form.as_p }}
+      <button type="submit">Update</button>
+    </form>
+  </div>
+
+  <form action="{% url 'complete_task' task.id %}" method="POST">
+    {% csrf_token %}
+    <button>Complete</button>
+  </form>
+
+  <form action="{% url 'delete_task' task.id %}" method="POST">
+    {% csrf_token %}
+    <button type="submit" style="color: red">Delete</button>
+  </form>
 
   {% endblock %}
 </form>
