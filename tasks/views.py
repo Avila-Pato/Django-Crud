@@ -4,6 +4,7 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 from django.contrib.auth import login, logout, authenticate
 from django.http import HttpResponse  # Corrección de HTTPResponse
+from .forms import TaskForm
 
 # Create your views here.
 
@@ -46,6 +47,12 @@ def signup(request):
 
 def tasks(request):
     return render(request, "tasks.html")  # Crear la plantilla tasks.html
+
+
+def create_tasks(request):
+    if request.method == "GET":
+        return render(request, "create_tasks.html", {"form": TaskForm()})
+    else:
 
 
 def signout(request):
