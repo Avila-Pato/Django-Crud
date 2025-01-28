@@ -1,6 +1,7 @@
 {% extends 'layouts/base.html' %} {% block content %}
 
 <h1>CreateTasks</h1>
+{{error}}
 <form method="POST">
   {% csrf_token %}
 

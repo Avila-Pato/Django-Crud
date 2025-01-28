@@ -1,0 +1,9 @@
+{% extends 'layouts/base.html' %} {% block content %} {{task.title}} {{error}}
+
+<form method="POST">
+  {% csrf_token %}
+
+  <div><h1>HOLA</h1></div>
+
+  {% endblock %}
+</form>
