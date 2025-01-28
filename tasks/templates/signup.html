@@ -1,3 +1,5 @@
+{% extends 'layouts/base.html' %} {% block content %}
+
 <h1>SignUP</h1>
 
 <form method="POST">
@@ -5,3 +7,5 @@
   <div>{{ form.as_p }}</div>
   <button type="submit">SignUP</button>
 </form>
+
+{% endblock %}
