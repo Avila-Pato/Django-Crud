@@ -18,8 +18,12 @@ En este curso, aprenderás a:
 
 ## ⏱️ Índice de Contenidos
 
-|  Tema                                 |
-|--------------|------------------------|
+---
+
+## ⏱️ Índice de Contenidos
+
+| Tema                                  |
+|---------------------------------------|
 | Introducción                          |
 | Requerimientos                        |
 | Configuración del Proyecto            |
@@ -41,3 +45,4 @@ En este curso, aprenderás a:
 | Listado de Tareas Completadas         |
 | Protección de Rutas                   |
 
+---
